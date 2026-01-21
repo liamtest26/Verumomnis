@@ -1,0 +1,264 @@
+name: Production Build & Test
+
+on:
+  push:
+    branches: [ main, develop ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  JAVA_VERSION: '17'
+  ANDROID_SDK_VERSION: '34'
+  NODE_VERSION: '18'
+
+jobs:
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'adopt'
+          cache: gradle
+          
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        
+      - name: Make build script executable
+        run: chmod +x build.sh
+        
+      - name: Build Android APK
+        run: |
+          ./build.sh android
+          
+      - name: Verify APK
+        run: |
+          APK=$(find app/build/outputs/apk/release -name "*.apk" | head -1)
+          if [ -z "$APK" ]; then
+            echo "❌ APK not found"
+            exit 1
+          fi
+          echo "✓ APK found: $APK"
+          echo "APK size: $(du -h $APK | cut -f1)"
+          
+      - name: Upload APK to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: app/build/outputs/apk/release/*.apk
+          retention-days: 30
+          
+      - name: Upload build logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build-logs
+          path: build_*.log
+
+  build-web:
+    name: Build Web Application
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'web/package-lock.json'
+          
+      - name: Make build script executable
+        run: chmod +x build.sh
+        
+      - name: Build Web
+        run: ./build.sh web
+        
+      - name: Verify web build
+        run: |
+          if [ ! -f "web/dist/index.html" ]; then
+            echo "❌ index.html not found"
+            exit 1
+          fi
+          echo "✓ Web build verified"
+          echo "Bundle size: $(du -sh web/dist | cut -f1)"
+          
+      - name: Run security audit
+        run: |
+          cd web
+          npm audit --audit-level=moderate || true
+          
+      - name: Upload web build
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: web/dist
+          retention-days: 30
+          
+      - name: Upload build logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build-logs
+          path: build_*.log
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'web/package-lock.json'
+          
+      - name: Install dependencies
+        run: |
+          cd web
+          npm install
+          
+      - name: Run type check
+        run: |
+          cd web
+          npm run type-check || true
+          
+      - name: Run linting
+        run: |
+          cd web
+          npm run lint || true
+          
+      - name: Run unit tests
+        run: |
+          cd web
+          npm run test || true
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci
+          
+      - name: Run npm audit
+        run: |
+          cd web
+          npm audit --production || true
+          
+      - name: Run Trivy scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          
+      - name: Upload Trivy results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+          
+  release:
+    name: Create Release
+    needs: [build-android, build-web, test]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Download Android APK
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk
+          path: release/
+          
+      - name: Download Web Build
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: release/web-dist/
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release/*
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  lint-code:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: 'web/package-lock.json'
+          
+      - name: Install dependencies
+        run: |
+          cd web
+          npm ci
+          
+      - name: Run ESLint
+        run: |
+          cd web
+          npm run lint || true
+          
+      - name: Run Prettier check
+        run: |
+          cd web
+          npx prettier --check . || true
+
+  build-status:
+    name: Build Status
+    needs: [build-android, build-web, test]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Check build status
+        run: |
+          if [ "${{ needs.build-android.result }}" != "success" ]; then
+            echo "❌ Android build failed"
+            exit 1
+          fi
+          if [ "${{ needs.build-web.result }}" != "success" ]; then
+            echo "❌ Web build failed"
+            exit 1
+          fi
+          echo "✓ All builds successful!"

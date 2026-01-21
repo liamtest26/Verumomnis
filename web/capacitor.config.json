@@ -1,0 +1,25 @@
+{
+  "appId": "org.verumomnis.forensic",
+  "appName": "Verum Omnis",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "automatic"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": false,
+    "appendUserAgent": "VerumOmnis/5.2.7"
+  },
+  "plugins": {
+    "Camera": {
+      "permissions": ["photos", "camera"]
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "dark"
+    }
+  }
+}
