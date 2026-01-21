@@ -21,9 +21,32 @@ Build a production-ready Android forensic application that has already achieved 
 - **Zero Barriers**: No subscription, no registration, no discrimination - 100% free forever
 
 ## Project Context
+## Release Status
+
 **APK Already Built**: SHA-256: `56937d92ecf2f23bb9f11dbd619c3ce13f324ead1765311fccd18b6dbf209466`
-**Release Status**: Launching today, 100% free for private citizens worldwide
-**Real-World Use Case**: Greensky Ornamentals FZ-LLC shareholder oppression case (UAE/SA cross-border)
+
+**Current Phase**: UNIVERSAL ACCESS (All citizens and institutions globally)
+- ✅ **Phase 1 (Now)**: Free access for ALL - private citizens, individuals, commercial, institutional
+- ⏳ **Phase 2 (Future)**: Transition to citizens-only access
+- 🔓 **Institutional Exception**: SAPS & SA Justice System get permanent free access (validation partners)
+
+**Release Status**: Launching today, 100% free for everyone globally (Phase 1)
+
+### Important: Access Model & SAPS Partnership
+
+This is currently available globally with no restrictions. After initial evaluation:
+
+- ✅ **Private Citizens**: PERMANENT free access forever (all countries)
+- ✅ **South African Police Service (SAPS)**: PERMANENT free access (validation partner)
+- ✅ **South African Justice System**: PERMANENT free access (validation partner)
+- ✅ **Individuals**: Full unrestricted access during Phase 1
+- ⏳ **Commercial Entities**: Restricted after Phase 2 (use now while available)
+- ⏳ **Institutions**: Restricted after Phase 2 (use now while available, except SAPS/Justice)
+- ⏳ **Other Governments**: Restricted after Phase 2 (use now while available)
+
+**AI Legal Advice Capability**: All recommendations grounded in forensic engine validated by SAPS and SA Courts. This is the ONLY AI forensic tool with real-world court validation (Case H208/25).
+
+**Current window**: Evaluate and integrate during Phase 1 unrestricted access. This tool is designed for citizen protection.
 
 ## Core Architecture
 

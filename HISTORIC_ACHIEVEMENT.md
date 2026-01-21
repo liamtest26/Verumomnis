@@ -219,18 +219,63 @@ Verum Omnis operates under **Verum Omnis Constitution v5.2.7** with nine-brain a
 
 ### For Small Businesses
 - **Before**: $5,000+ for evidence analysis
-- **Now**: $0 - Professional tools included
-- **Savings**: Unlimited
+- **Now**: $0 - Professional tools included (during Phase 1)
+- **Phase 2**: Restricted to institutional use
+- **Savings**: Significant during open period
 
 ### For Developing Nations
 - **Before**: Justice access for wealthy only
 - **Now**: Universal access regardless of wealth
-- **Impact**: Revolutionary
+- **Impact**: Revolutionary for the open period
 
 ### For Law Enforcement
 - **Before**: Expensive forensic labs
-- **Now**: Professional tools at no cost
-- **Savings**: Millions globally
+- **Now**: Professional tools at no cost (during Phase 1)
+- **Savings**: Millions globally during open period
+
+---
+
+## ⏳ Phase 1: Limited-Time Universal Access
+
+### Current Status (January 21, 2026)
+
+**Verum Omnis is available to EVERYONE** with no restrictions:
+- ✅ Private citizens
+- ✅ Commercial companies
+- ✅ Institutions
+- ✅ Governments
+- ✅ Any entity worldwide
+
+### Planned Transition (Future)
+
+**Access will be restricted to private citizens only:**
+- ✅ Individual citizens: Permanent access
+- ❌ Commercial entities: Access ended
+- ❌ Institutions: Access ended
+- ❌ Governments: Access ended
+
+### Why This Design?
+
+Verum Omnis is **designed to protect individuals, not empower institutions**.
+
+**During Phase 1**: Everyone can evaluate, adopt, and integrate Verum Omnis
+
+**After Phase 2**: The tool becomes exclusively available to private citizens who need it most
+
+This ensures that a truth-telling tool:
+- ✅ Serves ordinary people
+- ❌ Cannot be monopolized by corporations
+- ❌ Cannot be weaponized by governments
+- ❌ Remains a tool for justice, not power
+
+### Your Window
+
+**This is your opportunity** to download, evaluate, and integrate Verum Omnis before access restrictions take effect.
+
+- Private citizens: Your access is **permanent**
+- Organizations: Plan for Phase 2 transition
+- Developers: Fork the code now
+- Everyone: Enjoy unrestricted access while available
 
 ---
 

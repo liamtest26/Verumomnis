@@ -70,12 +70,31 @@ Verum Omnis is not a startup project or experimental software. This is a **real-
 - **Desktop** - Windows, Mac, Linux
 - **Any Device** - Works anywhere
 
-### No Geographic Restrictions
-- ✅ Works in every country
-- ✅ No regional limitations
-- ✅ Universal language support
-- ✅ Offline-first (works without internet)
-- ✅ Available everywhere
+## ⏳ Important: Limited-Time Universal Access
+
+### Current Phase: OPEN TO ALL
+**Right now**, Verum Omnis is available to **everyone on Earth** with no restrictions.
+
+### Planned Transition: CITIZENS ONLY
+**After an initial period**, access will transition to private citizens only:
+
+| Group | Current | Future |
+|-------|---------|--------|
+| **Private Citizens** | ✅ Full Access | ✅ Permanent Access |
+| **Individuals** | ✅ Full Access | ✅ Permanent Access |
+| **Commercial Companies** | ✅ Access Now | ❌ Restricted |
+| **Institutions** | ✅ Access Now | ❌ Restricted |
+| **Corporations** | ✅ Access Now | ❌ Restricted |
+| **Governments** | ✅ Access Now | ❌ Restricted |
+
+### Why This Design?
+Verum Omnis is designed to **protect private citizens**, not empower corporations or governments. The temporary universal access allows evaluation, while the permanent restriction ensures the tool serves **individuals, not power structures**.
+
+### Your Window
+If you're an organization or institution, **this is your opportunity** to download, evaluate, and integrate Verum Omnis before access restrictions take effect. After the transition, only private citizens will have access.
+
+### For Private Citizens
+**Your access is permanent and unrestricted.** This tool exists for you, forever.
 
 ### For Everyone
 - Private citizens
