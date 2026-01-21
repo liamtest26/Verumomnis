@@ -1,0 +1,299 @@
+{
+  "format_version": "1.0",
+  "engine_version": "5.2.7",
+  "description": "Leveler Engine Rules (B1-B9) Configuration",
+  
+  "B1_event_chronology": {
+    "description": "Event Chronology Reconstruction",
+    "timestamp_patterns": [
+      "\\d{1,2}/\\d{1,2}/\\d{4}",
+      "\\d{4}-\\d{2}-\\d{2}",
+      "\\d{1,2}:\\d{2}(?::\\d{2})?(?:\\s*(?:AM|PM|am|pm))?",
+      "\\d{1,2}\\.\\d{1,2}\\.\\d{4}"
+    ],
+    "temporal_keywords": [
+      "before", "after", "then", "previously", "subsequently", "earlier", "later",
+      "next day", "following", "prior to", "upon receipt", "immediately after"
+    ],
+    "reconstruction_confidence_threshold": 0.7,
+    "min_events_threshold": 3
+  },
+
+  "B2_contradiction_detection": {
+    "description": "Contradiction Detection Matrix",
+    "patterns": [
+      {
+        "category": "Direct Denial",
+        "regex": "denied.*admitted|never.*confirmed|false.*true|no.*yes",
+        "severity": "CRITICAL",
+        "weight": 3
+      },
+      {
+        "category": "Financial Discrepancy",
+        "regex": "no deal.*invoice|no payment.*receipt|zero.*amount|\\$0.*\\$\\d+",
+        "severity": "CRITICAL",
+        "weight": 3
+      },
+      {
+        "category": "Temporal Inconsistency",
+        "regex": "dated.*earlier|backdated|timestamp.*wrong|created.*modified",
+        "severity": "HIGH",
+        "weight": 2
+      },
+      {
+        "category": "Omission",
+        "regex": "no mention|missing|omitted|excluded|ignored|not included",
+        "severity": "MEDIUM",
+        "weight": 1
+      },
+      {
+        "category": "Factual Discrepancy",
+        "regex": "claims.*shows|states.*evidence|asserts.*contradicts|says.*proves",
+        "severity": "HIGH",
+        "weight": 2
+      }
+    ],
+    "semantic_opposites": [
+      {"word1": "yes", "word2": "no"},
+      {"word1": "true", "word2": "false"},
+      {"word1": "agree", "word2": "disagree"},
+      {"word1": "received", "word2": "never received"},
+      {"word1": "happened", "word2": "never happened"},
+      {"word1": "approved", "word2": "denied"},
+      {"word1": "authorized", "word2": "unauthorized"},
+      {"word1": "known", "word2": "unknown"}
+    ]
+  },
+
+  "B3_missing_evidence": {
+    "description": "Missing Evidence Gap Analysis",
+    "expected_documents": [
+      "Contract or agreement",
+      "Financial records or invoices",
+      "Email correspondence",
+      "Witness statements",
+      "Timestamps and dates",
+      "Communication logs",
+      "Transaction records",
+      "Board minutes",
+      "Shareholder records",
+      "Director resolutions"
+    ],
+    "document_type_indicators": {
+      "contract": ["agreement", "contract", "terms", "conditions", "signed", "executed"],
+      "financial": ["invoice", "receipt", "payment", "transaction", "bank statement", "account"],
+      "communication": ["email", "message", "reply", "response", "attachment"],
+      "witness": ["statement", "affidavit", "testimony", "witness"],
+      "record": ["minutes", "record", "log", "register", "entry"]
+    }
+  },
+
+  "B4_timeline_manipulation": {
+    "description": "Timeline Manipulation Detection",
+    "backdating_indicators": [
+      "backdated", "dated earlier", "prior date", "antedated",
+      "original date", "actual date different", "prepared on"
+    ],
+    "edit_indicators": [
+      "edited", "modified", "updated", "last changed", "revised",
+      "correction made", "error corrected", "amended"
+    ],
+    "suspicious_gap_thresholds": {
+      "critical_gap_days": 30,
+      "high_gap_days": 14,
+      "medium_gap_days": 7
+    },
+    "metadata_anomaly_rules": {
+      "creation_modification_gap_hours": 24,
+      "suspicious_simultaneous_edits": true
+    }
+  },
+
+  "B5_behavioral_patterns": {
+    "description": "Behavioral Pattern Recognition",
+    "patterns": {
+      "gaslighting": {
+        "indicators": [
+          "never said that", "you're misremembering", "that's not what happened",
+          "you're crazy", "no way that occurred", "false memory", "imagining things"
+        ],
+        "weight": 2,
+        "severity": "HIGH"
+      },
+      "evasion": {
+        "indicators": [
+          "don't remember", "can't recall", "not sure", "unclear",
+          "maybe", "possibly", "no comment", "not appropriate to discuss"
+        ],
+        "weight": 1,
+        "severity": "MEDIUM"
+      },
+      "concealment": {
+        "indicators": [
+          "cropped screenshot", "out of context", "missing pages",
+          "selective disclosure", "partial information", "incomplete"
+        ],
+        "weight": 2,
+        "severity": "HIGH"
+      },
+      "deflection": {
+        "indicators": [
+          "but you", "whatabout", "what about", "changing subject",
+          "irrelevant", "not relevant", "moving on"
+        ],
+        "weight": 1,
+        "severity": "LOW"
+      },
+      "denial": {
+        "indicators": [
+          "false", "incorrect", "wrong", "no way", "absolutely not",
+          "lies", "not true", "completely false"
+        ],
+        "weight": 1,
+        "severity": "MEDIUM"
+      }
+    }
+  },
+
+  "B6_financial_correlation": {
+    "description": "Financial Transaction Correlation",
+    "anomaly_rules": {
+      "impossible_amounts": {
+        "pattern": "\\$\\d{7,}",
+        "description": "Amount exceeds typical transaction magnitude (≥$1,000,000)",
+        "severity": "MEDIUM"
+      },
+      "duplicate_amounts": {
+        "pattern": "same.*amount|identical.*sum|duplicate.*payment",
+        "description": "Identical amounts across different transactions",
+        "severity": "MEDIUM"
+      },
+      "round_numbers": {
+        "pattern": "\\$\\d{1,}0{2,}(?!\\d)",
+        "description": "Suspiciously round amounts",
+        "severity": "LOW"
+      },
+      "statement_mismatch": {
+        "description": "Bank statement amounts differ from claimed amounts",
+        "variance_threshold_percent": 5
+      }
+    }
+  },
+
+  "B7_communication_patterns": {
+    "description": "Communication Pattern Analysis",
+    "response_analysis": {
+      "rapid_response_hours": 2,
+      "normal_response_hours": 24,
+      "unusual_delay_hours": 72,
+      "non_response": true
+    },
+    "deletion_patterns": {
+      "indicators": [
+        "deleted", "removed", "unsent", "retracted",
+        "archived", "destroyed", "cannot access"
+      ],
+      "high_deletion_rate_threshold": 0.3,
+      "medium_deletion_rate_threshold": 0.1
+    },
+    "topic_avoidance": {
+      "keywords": [
+        "not discussing", "moving on", "irrelevant", "off topic",
+        "next", "let's proceed", "that's not important", "immaterial"
+      ]
+    }
+  },
+
+  "B8_jurisdictional_requirements": {
+    "UAE": {
+      "requirements": [
+        "Arabic language support recommended",
+        "Right-to-left layout support",
+        "UAE legal references"
+      ],
+      "applicable_laws": [
+        "UAE Cybercrime Law 2012",
+        "UAE Civil Code 1985",
+        "UAE Labor Law 2012",
+        "UAE Commercial Code 1985"
+      ],
+      "enforcement_level": "STRONG"
+    },
+    "SA": {
+      "requirements": [
+        "ECT Act compliant timestamps",
+        "Saudi legal references",
+        "Timestamps with timezone information"
+      ],
+      "applicable_laws": [
+        "Saudi Electronic Transactions Law 2007",
+        "Saudi Companies Law 2015",
+        "Saudi Anti-Corruption Law 2013"
+      ],
+      "enforcement_level": "STRONG"
+    },
+    "ZA": {
+      "requirements": [
+        "South African legal framework",
+        "POPIA (Privacy) compliance",
+        "Proper evidence chain"
+      ],
+      "applicable_laws": [
+        "South African Companies Act 2008",
+        "Protection of Personal Information Act 2013",
+        "Electronic Communications and Transactions Act 2002"
+      ],
+      "enforcement_level": "STRONG"
+    },
+    "EU": {
+      "requirements": [
+        "GDPR compliance (personal data minimization)",
+        "EU legal references",
+        "Lawful processing basis documentation"
+      ],
+      "applicable_laws": [
+        "GDPR 2016/679",
+        "eIDAS Regulation 2014/910",
+        "EU Directive on Certain Uses of Digitally Stored Data"
+      ],
+      "enforcement_level": "CRITICAL"
+    }
+  },
+
+  "B9_integrity_scoring": {
+    "description": "Integrity Index Calculation (0-100)",
+    "calculation": {
+      "starting_score": 100,
+      "B1_chronology_weight": 15,
+      "B2_contradictions_weight": 30,
+      "B3_missing_evidence_weight": 20,
+      "B4_timeline_manipulation_weight": 25,
+      "B5_behavioral_patterns_weight": 15,
+      "B6_financial_correlation_weight": 10,
+      "B7_communication_patterns_weight": 10,
+      "B8_compliance_weight": 5
+    },
+    "categories": {
+      "excellent": {
+        "range": [85, 100],
+        "description": "High confidence in reliability and truthfulness"
+      },
+      "good": {
+        "range": [70, 84],
+        "description": "Good confidence with minor concerns"
+      },
+      "fair": {
+        "range": [55, 69],
+        "description": "Acceptable with investigation recommended"
+      },
+      "poor": {
+        "range": [40, 54],
+        "description": "Low confidence with significant issues"
+      },
+      "suspect": {
+        "range": [0, 39],
+        "description": "Very low confidence, not recommended for court"
+      }
+    }
+  }
+}

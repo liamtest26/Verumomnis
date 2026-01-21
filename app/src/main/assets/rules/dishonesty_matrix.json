@@ -1,0 +1,315 @@
+{
+  "format_version": "1.0",
+  "engine_version": "5.2.7",
+  "description": "Dishonesty Detection Matrix and Reliability Assessment",
+  
+  "dishonesty_indicators": {
+    "gaslighting": {
+      "definition": "Psychological manipulation to make victim question their reality",
+      "indicators": [
+        {
+          "phrase": "never said that",
+          "severity": "HIGH",
+          "legal_relevance": "Contradicts documented evidence"
+        },
+        {
+          "phrase": "you're misremembering",
+          "severity": "HIGH",
+          "legal_relevance": "Attacks witness credibility without evidence"
+        },
+        {
+          "phrase": "that didn't happen",
+          "severity": "HIGH",
+          "legal_relevance": "Denies event contradicted by documents"
+        },
+        {
+          "phrase": "you're crazy",
+          "severity": "HIGH",
+          "legal_relevance": "Personal attack instead of substantive response"
+        }
+      ],
+      "forensic_weight": 2.5,
+      "legal_significance": "CRITICAL"
+    },
+    
+    "evasion": {
+      "definition": "Deliberate avoidance of direct answers or commitments",
+      "indicators": [
+        {
+          "phrase": "don't remember",
+          "severity": "MEDIUM",
+          "legal_relevance": "Convenient memory loss on critical issues"
+        },
+        {
+          "phrase": "can't recall",
+          "severity": "MEDIUM",
+          "legal_relevance": "Selective memory regarding key transactions"
+        },
+        {
+          "phrase": "not sure",
+          "severity": "LOW",
+          "legal_relevance": "Lack of commitment or knowledge"
+        },
+        {
+          "phrase": "unclear",
+          "severity": "LOW",
+          "legal_relevance": "Ambiguous response to clear question"
+        },
+        {
+          "phrase": "no comment",
+          "severity": "MEDIUM",
+          "legal_relevance": "Refusal to answer documented inquiries"
+        }
+      ],
+      "forensic_weight": 1.5,
+      "legal_significance": "HIGH"
+    },
+    
+    "concealment": {
+      "definition": "Hiding or misrepresenting evidence or material facts",
+      "indicators": [
+        {
+          "phrase": "cropped screenshot",
+          "severity": "CRITICAL",
+          "legal_relevance": "Deliberate alteration of evidence"
+        },
+        {
+          "phrase": "out of context",
+          "severity": "HIGH",
+          "legal_relevance": "Selective presentation of information"
+        },
+        {
+          "phrase": "missing pages",
+          "severity": "CRITICAL",
+          "legal_relevance": "Incomplete document presentation"
+        },
+        {
+          "phrase": "partial information",
+          "severity": "HIGH",
+          "legal_relevance": "Incomplete disclosure of material facts"
+        },
+        {
+          "phrase": "selective disclosure",
+          "severity": "CRITICAL",
+          "legal_relevance": "Intentional withholding of material information"
+        }
+      ],
+      "forensic_weight": 3.0,
+      "legal_significance": "CRITICAL"
+    },
+    
+    "deflection": {
+      "definition": "Redirecting attention away from central issue",
+      "indicators": [
+        {
+          "phrase": "but you",
+          "severity": "MEDIUM",
+          "legal_relevance": "Ad hominem response instead of addressing issue"
+        },
+        {
+          "phrase": "what about",
+          "severity": "MEDIUM",
+          "legal_relevance": "Whataboutism to avoid accountability"
+        },
+        {
+          "phrase": "changing subject",
+          "severity": "MEDIUM",
+          "legal_relevance": "Deliberate avoidance of core issue"
+        },
+        {
+          "phrase": "that's irrelevant",
+          "severity": "MEDIUM",
+          "legal_relevance": "Dismissal of material evidence"
+        }
+      ],
+      "forensic_weight": 1.0,
+      "legal_significance": "MEDIUM"
+    },
+    
+    "denial": {
+      "definition": "Flat contradiction of documented facts",
+      "indicators": [
+        {
+          "phrase": "false",
+          "severity": "HIGH",
+          "legal_relevance": "Direct contradiction of documented fact"
+        },
+        {
+          "phrase": "completely false",
+          "severity": "CRITICAL",
+          "legal_relevance": "Emphatic denial contradicted by evidence"
+        },
+        {
+          "phrase": "never happened",
+          "severity": "CRITICAL",
+          "legal_relevance": "Categorical denial contradicted by records"
+        },
+        {
+          "phrase": "lies",
+          "severity": "HIGH",
+          "legal_relevance": "Accusation of dishonesty without evidence"
+        },
+        {
+          "phrase": "absolutely not",
+          "severity": "HIGH",
+          "legal_relevance": "Emphatic denial of documented matter"
+        }
+      ],
+      "forensic_weight": 2.0,
+      "legal_significance": "HIGH"
+    }
+  },
+  
+  "reliability_matrix": {
+    "credibility_factors": {
+      "consistency": {
+        "weight": 0.25,
+        "description": "Consistency of statements across multiple documents"
+      },
+      "corroboration": {
+        "weight": 0.25,
+        "description": "Third-party corroboration of claims"
+      },
+      "documentation": {
+        "weight": 0.25,
+        "description": "Documentary evidence supporting assertions"
+      },
+      "behavior": {
+        "weight": 0.25,
+        "description": "Behavioral indicators of truthfulness"
+      }
+    },
+    
+    "credibility_scores": {
+      "high_credibility": {
+        "range": [80, 100],
+        "indicators": [
+          "Consistent across all documents",
+          "Corroborated by independent sources",
+          "Documentary evidence supporting",
+          "No behavioral red flags"
+        ]
+      },
+      "moderate_credibility": {
+        "range": [60, 79],
+        "indicators": [
+          "Generally consistent with minor discrepancies",
+          "Partially corroborated",
+          "Some documentary support",
+          "Few behavioral concerns"
+        ]
+      },
+      "low_credibility": {
+        "range": [40, 59],
+        "indicators": [
+          "Inconsistencies within account",
+          "Limited corroboration",
+          "Weak documentary support",
+          "Moderate behavioral red flags"
+        ]
+      },
+      "very_low_credibility": {
+        "range": [0, 39],
+        "indicators": [
+          "Multiple contradictions",
+          "No independent corroboration",
+          "Contradicted by documents",
+          "Significant behavioral red flags"
+        ]
+      }
+    }
+  },
+  
+  "deception_probability": {
+    "high_probability": {
+      "threshold": 0.75,
+      "characteristics": [
+        "Multiple types of dishonesty indicators present",
+        "Direct contradictions with documentary evidence",
+        "Pattern of concealment or evasion",
+        "Behavioral indicators of consciousness of guilt"
+      ],
+      "legal_assessment": "SUSPECT - Do not present as reliable evidence without corroboration"
+    },
+    "moderate_probability": {
+      "threshold": 0.50,
+      "characteristics": [
+        "Some dishonesty indicators present",
+        "Inconsistencies requiring explanation",
+        "Partial corroboration",
+        "Some behavioral concerns"
+      ],
+      "legal_assessment": "CAUTION - Recommend further investigation"
+    },
+    "low_probability": {
+      "threshold": 0.25,
+      "characteristics": [
+        "Minimal dishonesty indicators",
+        "Generally consistent account",
+        "Good corroboration",
+        "No behavioral red flags"
+      ],
+      "legal_assessment": "RELIABLE - Suitable for legal proceedings"
+    }
+  },
+  
+  "evidence_tampering": {
+    "tampering_indicators": [
+      {
+        "type": "Document Alteration",
+        "indicators": [
+          "Metadata mismatches",
+          "Inconsistent fonts or formatting",
+          "Copy/paste anomalies",
+          "Inconsistent timestamps"
+        ],
+        "severity": "CRITICAL"
+      },
+      {
+        "type": "Selective Disclosure",
+        "indicators": [
+          "Missing pages or attachments",
+          "Cropped images",
+          "Redacted sections",
+          "Out-of-sequence evidence"
+        ],
+        "severity": "HIGH"
+      },
+      {
+        "type": "Sequence Manipulation",
+        "indicators": [
+          "Chronologically impossible ordering",
+          "Timestamp inconsistencies",
+          "Causality violations",
+          "Timeline gaps"
+        ],
+        "severity": "HIGH"
+      }
+    ]
+  },
+  
+  "legal_conclusions": {
+    "evidence_reliability_assessment": {
+      "EXCELLENT": {
+        "score_range": [85, 100],
+        "recommendation": "Suitable for court proceedings without additional support"
+      },
+      "GOOD": {
+        "score_range": [70, 84],
+        "recommendation": "Suitable for court with minor corroboration"
+      },
+      "FAIR": {
+        "score_range": [55, 69],
+        "recommendation": "Acceptable with substantial corroboration"
+      },
+      "POOR": {
+        "score_range": [40, 54],
+        "recommendation": "Not suitable without significant corroboration"
+      },
+      "SUSPECT": {
+        "score_range": [0, 39],
+        "recommendation": "NOT SUITABLE - Do not present as reliable evidence"
+      }
+    }
+  }
+}

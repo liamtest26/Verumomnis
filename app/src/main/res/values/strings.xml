@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Verum Omnis Forensic Engine</string>
+    
+    <!-- Main Activities -->
+    <string name="main_title">Verum Omnis Forensic Engine</string>
+    <string name="main_subtitle">Court-Grade Offline Forensic Analysis</string>
+    
+    <!-- Scanner Activity -->
+    <string name="scanner_title">Document Scanner</string>
+    <string name="scanner_subtitle">Capture or select documents</string>
+    
+    <!-- Verification Activity -->
+    <string name="verification_title">APK Verification</string>
+    <string name="verification_subtitle">Verify application integrity</string>
+    
+    <!-- Report Viewer -->
+    <string name="report_title">Forensic Report</string>
+    <string name="report_subtitle">View and export analysis</string>
+    
+    <!-- Legal Advisory Activity -->
+    <string name="legal_advisory_title">Legal Guidance (Advisory)</string>
+    <string name="legal_advisory_subtitle">Jurisdiction-aware advisory based on sealed findings</string>
+    
+    <!-- Common Actions -->
+    <string name="action_upload">Upload Document</string>
+    <string name="action_analyze">Analyze Evidence</string>
+    <string name="action_export">Export Report</string>
+    <string name="action_verify">Verify Integrity</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_ok">OK</string>
+    
+    <!-- Status Messages -->
+    <string name="status_processing">Processing...</string>
+    <string name="status_complete">Complete</string>
+    <string name="status_error">Error</string>
+    <string name="status_offline">Offline Mode (No Cloud)</string>
+    
+    <!-- Version -->
+    <string name="app_version">5.2.7</string>
+    <string name="engine_version">Verum Omnis Forensic Engine v5.2.7</string>
+    
+    <!-- Legal Info -->
+    <string name="legal_info">Court-tested and validated. See README for details.</string>
+</resources>

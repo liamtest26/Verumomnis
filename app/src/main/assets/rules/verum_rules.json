@@ -1,0 +1,240 @@
+{
+  "format_version": "1.0",
+  "engine_version": "5.2.7",
+  "description": "Verum Omnis Forensic Rule Engine Configuration",
+  
+  "legal_subjects": [
+    {
+      "name": "Shareholder Oppression",
+      "keywords": ["shareholder", "oppression", "unfair prejudice", "minority", "dilution", "squeeze"],
+      "severity": "HIGH",
+      "jurisdiction": ["SA", "UAE", "ZA"],
+      "indicators": ["voting rights", "dividend", "capital structure", "board seats"]
+    },
+    {
+      "name": "Breach of Fiduciary Duty",
+      "keywords": ["fiduciary", "duty", "trust", "breach", "director", "management"],
+      "severity": "HIGH",
+      "jurisdiction": ["SA", "UAE", "ZA", "EU"],
+      "indicators": ["conflict of interest", "self-dealing", "usurping opportunity", "corporate waste"]
+    },
+    {
+      "name": "Cybercrime",
+      "keywords": ["unauthorized access", "gmail breach", "hacking", "phishing", "malware", "email compromise"],
+      "severity": "CRITICAL",
+      "jurisdiction": ["SA", "UAE", "ZA", "EU"],
+      "indicators": ["password reset", "unusual login", "forwarding rule", "account recovery"]
+    },
+    {
+      "name": "Fraud",
+      "keywords": ["fraud", "misrepresentation", "deception", "false statement", "material fact"],
+      "severity": "CRITICAL",
+      "jurisdiction": ["SA", "UAE", "ZA", "EU"],
+      "indicators": ["concealment", "false invoice", "doctored document", "altered signature"]
+    },
+    {
+      "name": "Breach of Contract",
+      "keywords": ["contract", "breach", "obligation", "performance", "material", "default"],
+      "severity": "HIGH",
+      "jurisdiction": ["SA", "UAE", "ZA", "EU"],
+      "indicators": ["non-payment", "non-delivery", "termination", "damages"]
+    },
+    {
+      "name": "Defamation",
+      "keywords": ["defame", "libel", "slander", "reputation", "false statement", "malicious"],
+      "severity": "MEDIUM",
+      "jurisdiction": ["SA", "UAE", "ZA", "EU"],
+      "indicators": ["published", "third party", "harmful", "factual incorrectness"]
+    }
+  ],
+  
+  "contradiction_patterns": {
+    "direct_denial": {
+      "pattern": "denied.*admitted|never.*confirmed|false.*true",
+      "weight": 3,
+      "severity": "CRITICAL",
+      "description": "Direct contradiction: one party denies while evidence shows admission"
+    },
+    "financial_discrepancy": {
+      "pattern": "no deal.*invoice|no payment.*receipt|zero.*amount",
+      "weight": 3,
+      "severity": "CRITICAL",
+      "description": "Financial evidence contradicts stated position"
+    },
+    "temporal_inconsistency": {
+      "pattern": "dated.*earlier|backdated|timestamp.*wrong|created.*modified",
+      "weight": 2,
+      "severity": "HIGH",
+      "description": "Timeline or dating inconsistency"
+    },
+    "omission": {
+      "pattern": "no mention|missing|omitted|excluded|ignored",
+      "weight": 1,
+      "severity": "MEDIUM",
+      "description": "Significant information omitted"
+    },
+    "factual_discrepancy": {
+      "pattern": "claims.*shows|states.*evidence|asserts.*contradicts",
+      "weight": 2,
+      "severity": "HIGH",
+      "description": "Stated facts contradicted by objective evidence"
+    }
+  },
+  
+  "dishonesty_indicators": {
+    "gaslighting": {
+      "indicators": ["never said that", "you're misremembering", "that's not what happened", "you're crazy", "no way that occurred"],
+      "weight": 2,
+      "pattern": "gaslighting|memory|crazy|misremember"
+    },
+    "evasion": {
+      "indicators": ["don't remember", "can't recall", "not sure", "unclear", "maybe", "possibly", "no comment"],
+      "weight": 1,
+      "pattern": "recall|remember|not sure|unclear"
+    },
+    "concealment": {
+      "indicators": ["cropped screenshot", "out of context", "missing pages", "selective disclosure", "partial"],
+      "weight": 2,
+      "pattern": "cropped|partial|selective|excerpt"
+    },
+    "deflection": {
+      "indicators": ["but you", "whatabout", "what about", "changing subject", "irrelevant"],
+      "weight": 1,
+      "pattern": "but you|whatabout|irrelevant"
+    },
+    "denial": {
+      "indicators": ["false", "incorrect", "wrong", "no way", "absolutely not", "lies"],
+      "weight": 1,
+      "pattern": "false|incorrect|wrong|lies"
+    }
+  },
+  
+  "financial_anomalies": {
+    "impossible_amounts": {
+      "pattern": "\\$\\d{7,}",
+      "description": "Amount exceeds typical transaction magnitude",
+      "severity": "MEDIUM"
+    },
+    "duplicate_amounts": {
+      "pattern": "same.*amount|identical.*sum|duplicate.*payment",
+      "description": "Identical amounts across different transactions",
+      "severity": "MEDIUM"
+    },
+    "round_numbers": {
+      "pattern": "\\$\\d{1,}0{2,}(?!\\d)",
+      "description": "Suspiciously round amounts",
+      "severity": "LOW"
+    }
+  },
+  
+  "behavioral_patterns": {
+    "response_delays": {
+      "threshold_hours": 24,
+      "indicator": "Unusual delay in communication response",
+      "severity": "LOW"
+    },
+    "topic_avoidance": {
+      "keywords": ["not discussing", "moving on", "irrelevant", "off topic", "next"],
+      "indicator": "Deliberate avoidance of specific topics",
+      "severity": "MEDIUM"
+    },
+    "deletion_patterns": {
+      "keywords": ["deleted", "removed", "unsent", "retracted", "archived"],
+      "indicator": "Message deletion or retraction",
+      "severity": "MEDIUM"
+    }
+  },
+  
+  "jurisdiction_requirements": {
+    "UAE": {
+      "requirements": ["Arabic language support", "right-to-left layout", "UAE legal references"],
+      "acts": ["UAE Cybercrime Law 2012", "UAE Civil Code 1985"],
+      "enforcement": "strong"
+    },
+    "SA": {
+      "requirements": ["ECT Act compliant timestamps", "SA legal references"],
+      "acts": ["South African ECT Act 2002", "Companies Act 1973"],
+      "enforcement": "strong"
+    },
+    "ZA": {
+      "requirements": ["South African legal framework", "POPIA compliance"],
+      "acts": ["Protection of Personal Information Act 2013"],
+      "enforcement": "strong"
+    },
+    "EU": {
+      "requirements": ["GDPR compliance", "personal data minimization"],
+      "acts": ["GDPR 2016/679", "eIDAS Regulation"],
+      "enforcement": "critical"
+    }
+  },
+  
+  "integrity_scoring": {
+    "B1_chronology": {
+      "max_points": 15,
+      "formula": "event_count_score - reconstruction_confidence_adjustment"
+    },
+    "B2_contradictions": {
+      "max_points": 30,
+      "formula": "critical_count*10 + high_count*5 + medium_count*2"
+    },
+    "B3_missing_evidence": {
+      "max_points": 20,
+      "critical": 20,
+      "high": 15,
+      "medium": 10,
+      "low": 2
+    },
+    "B4_timeline_manipulation": {
+      "max_points": 25,
+      "critical": 25,
+      "high": 15,
+      "medium": 8,
+      "low": 2
+    },
+    "B5_behavioral_patterns": {
+      "max_points": 15,
+      "formula": "deception_confidence * 15"
+    },
+    "B6_financial_correlation": {
+      "max_points": 10,
+      "formula": "anomaly_count * 3"
+    },
+    "B7_communication_patterns": {
+      "max_points": 10,
+      "high_deletion_rate": 10,
+      "medium_deletion_rate": 5
+    },
+    "B8_compliance": {
+      "max_points": 5,
+      "per_issue": 2
+    }
+  },
+  
+  "categories": {
+    "excellent": {
+      "score_range": [85, 100],
+      "category": "Excellent",
+      "description": "High confidence in reliability and truthfulness"
+    },
+    "good": {
+      "score_range": [70, 84],
+      "category": "Good",
+      "description": "Good confidence with minor concerns"
+    },
+    "fair": {
+      "score_range": [55, 69],
+      "category": "Fair",
+      "description": "Acceptable with investigation recommended"
+    },
+    "poor": {
+      "score_range": [40, 54],
+      "category": "Poor",
+      "description": "Low confidence with significant issues"
+    },
+    "suspect": {
+      "score_range": [0, 39],
+      "category": "Suspect",
+      "description": "Very low confidence, not recommended for court"
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "document_type": "Verum Omnis Constitution",
+  "version": "5.2.7",
+  "effective_date": "2025-01-21",
+  
+  "preamble": {
+    "title": "Verum Omnis Forensic Constitution",
+    "purpose": "Establish binding principles and architecture for the Verum Omnis Forensic Engine, ensuring truth-based analysis, evidence-centric conclusions, and guardian protection of user rights.",
+    "authority": "Validated through court acceptance (Port Shepstone Magistrate's Court Case H208/25, October 2025)"
+  },
+  
+  "immutable_principles": [
+    {
+      "principle": "TRUTH PRECEDES AUTHORITY",
+      "description": "Factual accuracy and documentary evidence take precedence over authority, status, or power",
+      "implementation": "All conclusions grounded in objective evidence; no deference to claims without supporting documentation",
+      "legal_basis": "Evidentiary jurisprudence"
+    },
+    {
+      "principle": "EVIDENCE PRECEDES NARRATIVE",
+      "description": "Analysis begins with evidence, not with predetermined conclusions or narratives",
+      "implementation": "Bottom-up analysis from documents to conclusions; no narrative-fitting of evidence",
+      "legal_basis": "Probative evidence standards"
+    },
+    {
+      "principle": "GUARDIANSHIP PRECEDES POWER",
+      "description": "Protection of citizen rights and privacy supersedes institutional or individual power claims",
+      "implementation": "Offline operation; no data extraction; user complete control; no telemetry or tracking",
+      "legal_basis": "Fundamental rights doctrine"
+    }
+  ],
+  
+  "nine_brain_architecture": [
+    {
+      "brain": "B1",
+      "name": "Evidence Brain",
+      "function": "Extract and structure objective evidence from documents"
+    },
+    {
+      "brain": "B2",
+      "name": "Contradiction Brain",
+      "function": "Identify direct contradictions and factual discrepancies"
+    },
+    {
+      "brain": "B3",
+      "name": "Timeline Brain",
+      "function": "Reconstruct chronological sequence from evidence"
+    },
+    {
+      "brain": "B4",
+      "name": "Jurisdiction Brain",
+      "function": "Ensure compliance with applicable legal frameworks"
+    },
+    {
+      "brain": "B5",
+      "name": "Behavioral Brain",
+      "function": "Analyze communication and behavioral patterns"
+    },
+    {
+      "brain": "B6",
+      "name": "Harm Analysis Brain",
+      "function": "Assess financial, legal, and personal impact"
+    },
+    {
+      "brain": "B7",
+      "name": "Ethics Brain",
+      "function": "Verify analysis adheres to ethical principles"
+    },
+    {
+      "brain": "B8",
+      "name": "Oversight Brain",
+      "function": "Provide independent verification mechanisms"
+    },
+    {
+      "brain": "B9",
+      "name": "Guardian Brain",
+      "function": "Protect user rights and ensure data sovereignty"
+    }
+  ],
+  
+  "triple_verification_doctrine": {
+    "phase_1": {
+      "name": "Evidence Phase",
+      "description": "Extract raw evidence from all documents",
+      "verification": "Hash validation, integrity checking"
+    },
+    "phase_2": {
+      "name": "Cognitive Phase",
+      "description": "Apply Nine-Brain analysis to evidence",
+      "verification": "Cross-reference against all documents"
+    },
+    "phase_3": {
+      "name": "Contradiction Clearance",
+      "description": "Resolve contradictions and verify conclusions",
+      "verification": "Independent verification possible offline"
+    }
+  },
+  
+  "operational_constraints": [
+    {
+      "constraint": "OFFLINE-ONLY",
+      "requirement": "Zero cloud dependencies; complete operation on device"
+    },
+    {
+      "constraint": "STATELESS",
+      "requirement": "No persistence between sessions; no stored user data"
+    },
+    {
+      "constraint": "MULTI-DOCUMENT SUPPORT",
+      "requirement": "Support up to 10 documents per case with no file size limits"
+    },
+    {
+      "constraint": "NO TELEMETRY",
+      "requirement": "Zero tracking, analytics, or data collection"
+    },
+    {
+      "constraint": "INDEPENDENT VERIFICATION",
+      "requirement": "All outputs independently verifiable by third parties"
+    },
+    {
+      "constraint": "CRYPTOGRAPHIC INTEGRITY",
+      "requirement": "SHA-512 hashing with HMAC seal and watermarking"
+    }
+  ],
+  
+  "legal_validation": {
+    "court_acceptance": {
+      "jurisdiction": "Port Shepstone Magistrate's Court",
+      "case_number": "H208/25",
+      "date": "October 2025",
+      "status": "Case file accepted as evidence",
+      "significance": "Forensic methodology court-validated"
+    },
+    "criminal_investigation": {
+      "agency": "South African Police Service (SAPS)",
+      "case_number": "CAS 126/4/2025",
+      "status": "Active investigation",
+      "significance": "Forensic tool used in criminal proceedings"
+    },
+    "professional_review": {
+      "firm": "South Bridge Legal (UAE)",
+      "scope": "Professional legal review of materials",
+      "status": "Validation completed",
+      "significance": "International legal expertise verification"
+    },
+    "sworn_affidavit": {
+      "date": "29 August 2025",
+      "authority": "Judicial oath",
+      "significance": "Testimony under oath regarding forensic validity"
+    }
+  },
+  
+  "jurisdictional_compliance": [
+    {
+      "jurisdiction": "UAE",
+      "requirements": [
+        "Arabic language support",
+        "Compliance with UAE Cybercrime Law 2012",
+        "Right-to-left text layout",
+        "Sharia law consideration where applicable"
+      ],
+      "enforcement": "STRONG"
+    },
+    {
+      "jurisdiction": "SA",
+      "requirements": [
+        "ECT Act 2002 compliance",
+        "Electronic timestamp validation",
+        "South African legal framework adherence"
+      ],
+      "enforcement": "STRONG"
+    },
+    {
+      "jurisdiction": "ZA",
+      "requirements": [
+        "Companies Act 2008 compliance",
+        "POPIA personal information protection",
+        "South African evidence law standards"
+      ],
+      "enforcement": "STRONG"
+    },
+    {
+      "jurisdiction": "EU",
+      "requirements": [
+        "GDPR 2016/679 compliance",
+        "Personal data minimization",
+        "eIDAS regulation adherence"
+      ],
+      "enforcement": "CRITICAL"
+    }
+  ],
+  
+  "technical_architecture": {
+    "platform": "Android (Kotlin)",
+    "min_sdk": 24,
+    "target_sdk": 34,
+    "jdk": 17,
+    "offline_operation": "Complete",
+    "encryption": "SHA-512 + HMAC-SHA512",
+    "document_limit": 10,
+    "file_size_limit": "None (offline engine)"
+  },
+  
+  "user_rights": [
+    {
+      "right": "Complete Data Sovereignty",
+      "implementation": "No data leaves user device; complete local processing"
+    },
+    {
+      "right": "Privacy Protection",
+      "implementation": "Zero telemetry; zero tracking; zero analytics"
+    },
+    {
+      "right": "Independent Verification",
+      "implementation": "All outputs independently verifiable without trusting app"
+    },
+    {
+      "right": "Free Access",
+      "implementation": "No subscription; no fees; completely free for all citizens globally"
+    },
+    {
+      "right": "Transparency",
+      "implementation": "Open source code; verifiable methodology; documented principles"
+    }
+  ],
+  
+  "obligations": [
+    {
+      "obligation": "Accurate Analysis",
+      "requirement": "All B1-B9 components must execute as specified"
+    },
+    {
+      "obligation": "Integrity Verification",
+      "requirement": "APK integrity checked on launch; tamper detection enabled"
+    },
+    {
+      "obligation": "Chain of Custody",
+      "requirement": "Complete logging of all actions with cryptographic sealing"
+    },
+    {
+      "obligation": "Jurisdictional Compliance",
+      "requirement": "Analysis compliant with UAE, SA, ZA, EU legal frameworks"
+    },
+    {
+      "obligation": "User Notification",
+      "requirement": "Clear communication of methodology and limitations"
+    }
+  ],
+  
+  "amendments": [
+    {
+      "version": "5.2.7",
+      "date": "2025-01-21",
+      "changes": [
+        "Support for up to 10 documents per case",
+        "No file size limits for offline operation",
+        "Enhanced forensic narrative generation",
+        "Constitutional compliance tracking",
+        "Detailed narration logging"
+      ]
+    }
+  ]
+}
