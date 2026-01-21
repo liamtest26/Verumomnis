@@ -1,0 +1,163 @@
+{
+  "constitution_version": "5.2.7",
+  "sealed_at": "2025-01-31T00:00:00Z",
+  "sealed_by": "ConstitutionalEnforcementLock",
+  "constitution_hash": "sha256:abc123def456ghi789jkl012mno345pqr678stu901vwx234yz5",
+  "immutable_principles": [
+    {
+      "principle_1": "Truth Precedes Authority",
+      "meaning": "Evidence and reality supersede institutional claims",
+      "enforcement": "Hard-coded in ConstitutionalEnforcementLock.kt",
+      "hardcoded": true
+    },
+    {
+      "principle_2": "Evidence Precedes Narrative",
+      "meaning": "Facts take priority over stories",
+      "enforcement": "Hard-coded in ConstitutionalEnforcementLock.kt",
+      "hardcoded": true
+    },
+    {
+      "principle_3": "Guardianship Precedes Power",
+      "meaning": "Citizen protection beats institutional interests",
+      "enforcement": "Hard-coded in ConstitutionalEnforcementLock.kt",
+      "hardcoded": true
+    }
+  ],
+  "nine_brain_architecture": {
+    "required": true,
+    "order_enforced": true,
+    "cannot_skip": true,
+    "brains": [
+      {
+        "brain": "B1",
+        "name": "B1_Evidence",
+        "function": "Evidence collection and analysis",
+        "required": true
+      },
+      {
+        "brain": "B2",
+        "name": "B2_Contradiction",
+        "function": "Identifying inconsistencies and contradictions",
+        "required": true
+      },
+      {
+        "brain": "B3",
+        "name": "B3_Timeline",
+        "function": "Temporal analysis and sequencing",
+        "required": true
+      },
+      {
+        "brain": "B4",
+        "name": "B4_Jurisdiction",
+        "function": "Legal jurisdiction and authority verification",
+        "required": true
+      },
+      {
+        "brain": "B5",
+        "name": "B5_Behavioral",
+        "function": "Behavioral pattern analysis",
+        "required": true
+      },
+      {
+        "brain": "B6",
+        "name": "B6_Finance",
+        "function": "Financial and transaction analysis",
+        "required": true
+      },
+      {
+        "brain": "B7",
+        "name": "B7_Communication",
+        "function": "Communication pattern analysis",
+        "required": true
+      },
+      {
+        "brain": "B8",
+        "name": "B8_Ethics",
+        "function": "Ethical compliance checking",
+        "required": true
+      },
+      {
+        "brain": "B9",
+        "name": "B9_Guardian",
+        "function": "Citizen protection final check",
+        "required": true
+      }
+    ]
+  },
+  "legal_advisory_constraints": [
+    {
+      "constraint": "Evidence-Based Only",
+      "meaning": "No legal advice without forensic evidence",
+      "enforcement": "Throws ConstitutionalBreachException if evidence.isBlank()",
+      "hardcoded": true
+    },
+    {
+      "constraint": "Citizen-Protective",
+      "meaning": "Advice must prioritize citizen safety and rights",
+      "enforcement": "Throws ConstitutionalBreachException if !citizenProtective",
+      "hardcoded": true
+    },
+    {
+      "constraint": "Fully Transparent",
+      "meaning": "All reasoning must be shown, sources cited",
+      "enforcement": "Throws ConstitutionalBreachException if !transparent",
+      "hardcoded": true
+    }
+  ],
+  "amendment_process": {
+    "locked_until": "2027-01-31",
+    "locked_until_unix": 1843238400,
+    "reason": "Constitution locked for 2 years following initial release",
+    "phase_1_end": "2027-01-31",
+    "phase_2_start": "2027-02-01",
+    "requires_approval_from": [
+      "SAPS",
+      "SA_Justice_System",
+      "Community_Consensus_75_percent"
+    ],
+    "amendment_requirements": {
+      "formal_proposal": true,
+      "github_documented": true,
+      "public_comment_days": 30,
+      "community_vote_threshold": 0.75,
+      "saps_approval": true,
+      "justice_system_approval": true
+    },
+    "permanent_immutable_items": [
+      "Three immutable principles cannot be changed",
+      "Nine-brain requirement cannot be reduced or expanded",
+      "Citizen protection priority cannot be weakened"
+    ]
+  },
+  "breach_handling": {
+    "detection": "ConstitutionalBreachException thrown",
+    "response": "Immediate GitHub notification and processing halt",
+    "processing_halt": true,
+    "github_issue_auto_created": true,
+    "audit_trail_logged": true,
+    "user_notification": true
+  },
+  "audit_trail": {
+    "enabled": true,
+    "immutable": true,
+    "timestamped": true,
+    "publicly_auditable": true,
+    "cryptographically_signed": true
+  },
+  "transparency": {
+    "full_constitution_embedded_in_apk": true,
+    "public_on_github": true,
+    "in_documentation": true,
+    "viewable_in_app_settings": true,
+    "no_hidden_rules": true,
+    "no_hidden_logic": true
+  },
+  "validation_status": {
+    "principles_validated": true,
+    "nine_brains_validated": true,
+    "legal_constraints_validated": true,
+    "compliance_validator_active": true,
+    "runtime_validation_enabled": true,
+    "seal_signature_valid": true
+  }
+}
