@@ -61,13 +61,13 @@ echo ""
 
 # Step 1: Clean previous builds
 echo -e "${YELLOW}🧹 Cleaning previous builds...${NC}"
-./gradlew clean
+gradle clean || ./gradlew clean || true
 echo -e "${GREEN}✓ Clean complete${NC}"
 echo ""
 
 # Step 2: Build Android APK
 echo -e "${YELLOW}📱 Building Android APK with signature...${NC}"
-./gradlew assembleRelease
+gradle assembleRelease || ./gradlew assembleRelease
 echo -e "${GREEN}✓ Android APK built${NC}"
 echo ""
 
